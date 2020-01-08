@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import axios from "axios";
+// import "./App.css";
+import { Route, withRouter } from "react-router-dom";
+import DisplayList from "./components/DisplayList";
+import EditForm from "./components/EditForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    posts: [],
+    currentPost: {}
+  };
+  componentDidMount() {
+    axios.get(`https://jsonplaceholder.typicode.com/posts`).then(res => {
+      const posts = res.data;
+      this.setState({ posts: posts });
+    });
+  }
+  clickHandler = post => {
+    this.setState({
+      ...this.state,
+      currentPost: post
+    });
+  };
+
+  submitHandler = post => {
+    let updatedState = this.state.posts.slice();
+    this.setState({
+      ...this.state,
+      posts: updatedState.map(curPost =>
+        curPost.id === post.id ? post : curPost
+      )
+    });
+    this.props.history.push("/");
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Route
+          path="/"
+          exact
+          component={() => (
+            <DisplayList posts={this.state.posts} onClick={this.clickHandler} />
+          )}
+        />
+        <Route
+          path="/edit/:id"
+          exact
+          component={() => (
+            <EditForm
+              post={this.state.currentPost}
+              submit={this.submitHandler}
+            />
+          )}
+        />
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);
