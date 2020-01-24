@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
-export default class EditForm extends Component {
+class EditForm extends Component {
   state = {
     currentPost: {},
     loading: true
   };
   componentDidMount() {
     axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${this.props.post.id}`)
+      .get(
+        `https://jsonplaceholder.typicode.com/posts/${this.props.match.params.id}`
+      )
       .then(res => {
         const post = res.data;
         this.setState({ currentPost: post, loading: false });
@@ -24,7 +27,11 @@ export default class EditForm extends Component {
 
   render() {
     return this.state.loading ? (
-      <div className="spinner-border text-warning" role="status">
+      <div
+        className="spinner-border text-warning"
+        role="status"
+        style={{ margin: " 75px 0px 0px 120px" }}
+      >
         <span className="sr-only">Loading...</span>
       </div>
     ) : (
@@ -46,3 +53,4 @@ export default class EditForm extends Component {
     );
   }
 }
+export default withRouter(EditForm);
