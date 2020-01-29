@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-routerExample/static/css/main.e3f88405.chunk.css",
+    "main.js": "/react-routerExample/static/js/main.70b70292.chunk.js",
+    "main.js.map": "/react-routerExample/static/js/main.70b70292.chunk.js.map",
+    "runtime-main.js": "/react-routerExample/static/js/runtime-main.b6b09ccd.js",
+    "runtime-main.js.map": "/react-routerExample/static/js/runtime-main.b6b09ccd.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/react-routerExample/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.0031f4eb.chunk.js": "/react-routerExample/static/js/2.0031f4eb.chunk.js",
+    "static/js/2.0031f4eb.chunk.js.map": "/react-routerExample/static/js/2.0031f4eb.chunk.js.map",
+    "index.html": "/react-routerExample/index.html",
+    "precache-manifest.86b86e3b58d87b928f8893b3e5518b3a.js": "/react-routerExample/precache-manifest.86b86e3b58d87b928f8893b3e5518b3a.js",
+    "service-worker.js": "/react-routerExample/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/react-routerExample/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.e3f88405.chunk.css.map": "/react-routerExample/static/css/main.e3f88405.chunk.css.map",
+    "static/js/2.0031f4eb.chunk.js.LICENSE": "/react-routerExample/static/js/2.0031f4eb.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6b09ccd.js",
+    "static/css/2.17e5ed98.chunk.css",
+    "static/js/2.0031f4eb.chunk.js",
+    "static/css/main.e3f88405.chunk.css",
+    "static/js/main.70b70292.chunk.js"
+  ]
+}
