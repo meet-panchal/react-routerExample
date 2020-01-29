@@ -38,14 +38,14 @@ class App extends Component {
     return (
       <div className="App">
         <Route
-          path="/"
+          path="react-routerExample/"
           exact
           component={() => (
             <DisplayList posts={this.state.posts} onClick={this.clickHandler} />
           )}
         />
         <Route
-          path="/edit/:id"
+          path="react-routerExample/edit/:id"
           exact
           component={() => (
             <EditForm
