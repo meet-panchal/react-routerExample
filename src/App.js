@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 // import "./App.css";
-import { Route, withRouter } from "react-router-dom";
+import { HashRouter, Route, withRouter } from "react-router-dom";
 import DisplayList from "./components/DisplayList";
 import EditForm from "./components/EditForm";
 
@@ -36,25 +36,30 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Route
-          path="react-routerExample/"
-          exact
-          component={() => (
-            <DisplayList posts={this.state.posts} onClick={this.clickHandler} />
-          )}
-        />
-        <Route
-          path="react-routerExample/edit/:id"
-          exact
-          component={() => (
-            <EditForm
-              post={this.state.currentPost}
-              submit={this.submitHandler}
-            />
-          )}
-        />
-      </div>
+      <HashRouter basename="/">
+        <div className="App">
+          <Route
+            path="/"
+            exact
+            component={() => (
+              <DisplayList
+                posts={this.state.posts}
+                onClick={this.clickHandler}
+              />
+            )}
+          />
+          <Route
+            path="/edit/:id"
+            exact
+            component={() => (
+              <EditForm
+                post={this.state.currentPost}
+                submit={this.submitHandler}
+              />
+            )}
+          />
+        </div>
+      </HashRouter>
     );
   }
 }
