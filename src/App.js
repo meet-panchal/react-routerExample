@@ -31,7 +31,7 @@ class App extends Component {
         curPost.id === post.id ? post : curPost
       )
     });
-    this.props.history.push("/#");
+    this.props.history.push(process.env.PUBLIC_URL + "/");
   };
 
   render() {
